@@ -1,0 +1,42 @@
+.content-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px 20px;
+}
+
+.graph-container {
+    width: 90%;
+    min-width: 750px;
+    height: 90%;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: 100px;
+    background-color: var(--gray-color);
+}
+
+rect {
+    display: block;
+}
+
+@media screen and (max-width: 1100px) {
+    .content-container {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+    }
+
+    .arr_container {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .graph-container {
+        margin-top: 30px;
+        width: 90%;
+        min-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

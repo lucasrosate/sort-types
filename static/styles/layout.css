@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+    width: 100vw;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color-lighter);
+}
+
+.navbar__options {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar__options ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 100%;
+    padding-left: 0;
+}
+
+.navbar__options ul li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0 max(50px, 5%);
+    height: 100%;
+    color: white;
+    transition: background-color 100ms;
+}
+
+.navbar__options ul li:hover {
+    background-color: var(--primary-color-lighter);
+    border-radius: 2px;
+}
+
+.arr_container {
+    margin-top: 100px;
+    width: 400px;
+    margin-left: 30px;
+}
+
+.arr_container__arraylength {
+    width: 100%;
+}
+
+.arr_container__description {
+    display: inline;
+}
+
+.arr_container__description h4 {
+    margin-bottom: 50px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: rgb(148, 147, 147);
+}
+
+.arr_container__buttons {
+    display: flex;
+    margin-top: 100px;
+}
+
+
+.arr_container__buttons button:first-child {
+    margin-left: auto;
+}
+
+.arr_container__buttons button:nth-child(2) {
+    margin-left: 30px;
+}
+
+.arr_container__array_elems {
+    background-color: var(--gray-color);
+    height: 400px;
+    width: 100%;
+    margin-top: 50px;
+    padding: 30px 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-family: "Fira Code";
+    font-size: 0.85rem;
+    overflow-wrap: break-word;
+    text-align: justify;
+}

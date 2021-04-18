@@ -1,0 +1,58 @@
+{% block header %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/presets.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/layout.css') }}">
+
+    <title>Sort Types</title>
+</head>
+
+<body>
+    <nav class="navbar noselect">
+        <div class="navbar__options">
+            <ul>
+                <li onclick="changeOption(0)">Quick Sort</li>
+                <li onclick="changeOption(1)">Bubble Sort</li>
+                <li onclick="changeOption(2)">Merge Sort</li>
+            </ul>
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block content %}
+    <div class="arr_container">
+        <div class="arr_container__description">
+            <h4>Select the array length <span id="arr-length-value" style="float: right;">10</span></h4>
+
+        </div>
+
+        <div class="arr_container__arraylength">
+            <input type="range" min="10" max="10000" value="10" step="10" class="slider" id="slider_array_length"
+                oninput="updateValue(this.value)">
+        </div>
+
+        <div class="arr_container__buttons">
+            <button id="start_button" class="btn btn-primary">Start</button>
+            <button id="stop_button" class="btn btn-red">Stop</button>
+        </div>
+
+        <div class="arr_container__array_elems" id="array_field">
+        </div>
+
+    </div>
+    {% endblock %}
+
+</body>
+
+
+<script src="/static/js/script.js"></script>
+
+
+</html>

@@ -1,1 +1,1 @@
-This displays how sort algorithms
+This displays how sort algorithms are organized.
