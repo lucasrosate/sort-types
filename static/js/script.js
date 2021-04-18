@@ -1,39 +1,54 @@
 
+var MIN_ARR_VALUE = 2000;
+var MAX_ARR_VALUE = 15000;
+var DELTA_ARR = MAX_ARR_VALUE - MIN_ARR_VALUE
 // Global array, it receives the random values below
 var inputArray = [];
 // 0 - Quick Sort, 1 - Bubble Sort, 2 - Merge Sort
 var option = 0;
 // Min height value in canvas
-var minHeight = 0;
+const MIN_WIDTH = 0;
 // Max height value in canvas
-var maxHeight = 400;
+const MAX_HEIGHT = 600;
 // Difference between
-var deltaHeight = maxHeight - minHeight
+const DELTA_HEIGHT = MAX_HEIGHT - MIN_WIDTH
+
+const CANVAS_WIDTH = 750;
 
 // Important DOM elements
 var arrLengthValue = document.getElementById("arr-length-value");
-var codeArrField = document.getElementById("array_field");
+var codeArrField = document.getElementById("array-field");
 var graphPlotArea = document.getElementById("graph-plot-area");
+
+
 
 /**
  * Function to draw the graph.
  * @param {number} arrLength 
  */
 function generateGraph(arrLength) {
-    let minValue =
-        inputArray.reduce((prevValue, value) =>
-            Math.max(prevValue, value))
+    const minValue =
+        inputArray.reduce((prevValue, value) => Math.max(prevValue, value))
 
-    let maxValue =
-        inputArray.reduce((prevValue, value) =>
-            Math.min(prevValue, value))
+    const maxValue =
+        inputArray.reduce((prevValue, value) => Math.min(prevValue, value))
 
-    const delta = parseInt(maxValue) - parseInt(minValue);
-    var yValue = inputArray.map((value) => deltaHeight * (value - minValue) / delta);
+    const delta = maxValue - minValue;
+
+    const yValue =
+        inputArray.map((value) => Math.floor(DELTA_HEIGHT * (value - minValue) / delta));
+
+    console.log(yValue)
+    const barWidth = Math.floor(CANVAS_WIDTH / arrLength) - 1;
 
     var ctx = graphPlotArea.getContext('2d');
+    ctx.clearRect(0, 0, CANVAS_WIDTH, MAX_HEIGHT);
+    ctx.beginPath();
     ctx.fillStyle = "rgb(101, 156, 219)";
-    ctx.fillRect(0, 0, 20, 20);
+
+    console.log(barWidth);
+    for (let i = 0; i < arrLength; i++)
+        ctx.fillRect(barWidth * i + i, 0, barWidth, yValue[i]);
 
 }
 
@@ -47,7 +62,7 @@ function generateArray(arrLength) {
     let randomElem;
 
     for (let i = 0; i < arrLength; i++) {
-        randomElem = parseInt(Math.random() * 40000);
+        randomElem = parseInt(Math.random() * (DELTA_ARR + MIN_ARR_VALUE));
         randomElem in inputArray ? i-- : arr.push(parseInt(randomElem));
     }
 
@@ -85,5 +100,6 @@ function updateValue(value) {
 // Initial slider value
 window.onload = function () {
     inputArray = generateArray(10);
+    generateGraph(10);
     fillArrField();
 };
