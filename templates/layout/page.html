@@ -28,13 +28,14 @@
 
     {% block content %}
     <div class="arr_container">
+        <h1 id="selected-option" style="font-size: 1.6rem; color:var(--primary-color);"></h1>
         <div class="arr_container__description">
-            <h4>Select the array length <span id="arr-length-value" style="float: right;">10</span></h4>
+            <h4>Select the array length <span id="arr-length-value" style="float: right;">25</span></h4>
 
         </div>
 
         <div class="arr_container__arraylength">
-            <input type="range" min="5" max="300" value="5" step="5" class="slider" id="slider_array_length"
+            <input type="range" min="25" max="500" value="5" step="25" class="slider" id="slider_array_length"
                 oninput="updateValue(this.value)">
         </div>
 
@@ -42,8 +43,12 @@
             <button id="start_button" class="btn btn-primary">Start</button>
             <button id="stop_button" class="btn btn-red">Stop</button>
         </div>
-
+        <h1 class="arr_container__label">Input</h1>
         <div class="arr_container__array_elems" id="array-field">
+        </div>
+
+        <h1 class="arr_container__label">Output</h1>
+        <div class="arr_container__array_elems" id="array-output sort">
         </div>
 
     </div>

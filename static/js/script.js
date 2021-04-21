@@ -20,7 +20,20 @@ var arrLengthValue = document.getElementById("arr-length-value");
 var codeArrField = document.getElementById("array-field");
 var graphPlotArea = document.getElementById("graph-plot-area");
 
-
+function changeOption(option) {
+    switch (option) {
+        case 0:
+            document.getElementById("selected-option").innerHTML = "Quick Sort";
+            break;
+        case 1:
+            document.getElementById("selected-option").innerHTML = "Bubble Sort";
+            break;
+        case 2:
+            document.getElementById("selected-option").innerHTML = "Merge Sort";
+            break;
+        default: break;
+    }
+}
 
 /**
  * Function to draw the graph.
@@ -38,15 +51,13 @@ function generateGraph(arrLength) {
     const yValue =
         inputArray.map((value) => Math.floor(DELTA_HEIGHT * (value - minValue) / delta));
 
-    console.log(yValue)
-    const barWidth = Math.floor(CANVAS_WIDTH / arrLength) - 1;
+    const barWidth = (CANVAS_WIDTH / arrLength) - 1;
 
     var ctx = graphPlotArea.getContext('2d');
     ctx.clearRect(0, 0, CANVAS_WIDTH, MAX_HEIGHT);
     ctx.beginPath();
     ctx.fillStyle = "rgb(101, 156, 219)";
 
-    console.log(barWidth);
     for (let i = 0; i < arrLength; i++)
         ctx.fillRect(barWidth * i + i, 0, barWidth, yValue[i]);
 
@@ -99,7 +110,8 @@ function updateValue(value) {
 
 // Initial slider value
 window.onload = function () {
-    inputArray = generateArray(10);
-    generateGraph(10);
+    inputArray = generateArray(25);
+    generateGraph(25);
+    changeOption(0);
     fillArrField();
 };

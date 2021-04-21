@@ -48,7 +48,7 @@ body {
 }
 
 .arr_container {
-    margin-top: 100px;
+    margin-top: 60px;
     width: 400px;
     margin-left: 30px;
 }
@@ -82,11 +82,19 @@ body {
     margin-left: 30px;
 }
 
+
+.arr_container__label {
+    font-size: 1.2rem;
+    height: 20px;
+    margin: 0;
+}
+
+
 .arr_container__array_elems {
     background-color: var(--gray-color);
-    height: 400px;
+    height: 200px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 30px 20px;
     overflow-y: auto;
     overflow-x: hidden;
