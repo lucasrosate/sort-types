@@ -15,12 +15,17 @@ const DELTA_HEIGHT = MAX_HEIGHT - MIN_WIDTH
 
 const CANVAS_WIDTH = 750;
 
+var execute = false;
+
 // Important DOM elements
 var arrLengthValue = document.getElementById("arr-length-value");
 var codeArrField = document.getElementById("array-field");
+var outputArrField = document.getElementById("array-output");
 var graphPlotArea = document.getElementById("graph-plot-area");
 
 function changeOption(option) {
+    execute = false;
+    
     switch (option) {
         case 0:
             document.getElementById("selected-option").innerHTML = "Quick Sort";
@@ -35,21 +40,21 @@ function changeOption(option) {
     }
 }
 
+
 /**
  * Function to draw the graph.
+ * @param {Array<number>} arr
  * @param {number} arrLength 
  */
-function generateGraph(arrLength) {
-    const minValue =
-        inputArray.reduce((prevValue, value) => Math.max(prevValue, value))
+function generateGraph(arr, arrLength = arr.length) {
 
-    const maxValue =
-        inputArray.reduce((prevValue, value) => Math.min(prevValue, value))
+
+    const maxValue = arr.reduce((prevValue, value) => Math.max(prevValue, value));
+    const minValue = arr.reduce((prevValue, value) => Math.min(prevValue, value));
 
     const delta = maxValue - minValue;
 
-    const yValue =
-        inputArray.map((value) => Math.floor(DELTA_HEIGHT * (value - minValue) / delta));
+    const yValue = arr.map((value) => Math.floor(DELTA_HEIGHT * (value - minValue) / delta));
 
     const barWidth = (CANVAS_WIDTH / arrLength) - 1;
 
@@ -84,13 +89,22 @@ function generateArray(arrLength) {
  * Write all the random elements in DOM.
  * @returns {void}
  */
-function fillArrField() {
+function fillArrField(arr) {
     codeArrField.textContent =
         "[" +
-        inputArray.join(', ')
+        arr.join(', ')
         +
         " ]";
 }
+
+function fillOutputArrField(arr) {
+    outputArrField.textContent =
+        "[" +
+        arr.join(', ')
+        +
+        " ]";
+}
+
 
 /**
  * Get the current value from slider triggered by
@@ -99,19 +113,41 @@ function fillArrField() {
  * @param {number} value 
  */
 function updateValue(value) {
+    execute = false;
     arrLengthValue.innerHTML = value;
+    outputArrField.innerHTML = "";
     const numberOfElements = parseInt(value)
     inputArray = generateArray(numberOfElements);
-    generateGraph(numberOfElements);
-    fillArrField();
+    generateGraph(inputArray);
+    fillArrField(inputArray);
+}
 
+
+function startSort() {
+    let selectedOption = document.getElementById("selected-option").innerHTML;
+
+
+
+    switch(selectedOption) {
+        case "Quick Sort":
+            execute = true;
+            quickSort(inputArray);
+            break;
+        default: break;
+        
+    }
 
 }
+
+function stopSort() {
+    execute = false;
+}
+
 
 // Initial slider value
 window.onload = function () {
     inputArray = generateArray(25);
-    generateGraph(25);
+    generateGraph(inputArray);
     changeOption(0);
-    fillArrField();
+    fillArrField(inputArray);
 };

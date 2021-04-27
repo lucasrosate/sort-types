@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/presets.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/layout.css') }}">
-
     <title>Sort Types</title>
 </head>
 
@@ -35,28 +34,28 @@
         </div>
 
         <div class="arr_container__arraylength">
-            <input type="range" min="25" max="500" value="5" step="25" class="slider" id="slider_array_length"
+            <input type="range" min="25" max="10000" value="5" step="25" class="slider" id="slider_array_length"
                 oninput="updateValue(this.value)">
         </div>
 
         <div class="arr_container__buttons">
-            <button id="start_button" class="btn btn-primary">Start</button>
-            <button id="stop_button" class="btn btn-red">Stop</button>
+            <button id="start_button" class="btn btn-primary" onclick="startSort()">Start</button>
+            <button id="stop_button" class="btn btn-red" onclick="stopSort()">Stop</button>
         </div>
         <h1 class="arr_container__label">Input</h1>
         <div class="arr_container__array_elems" id="array-field">
         </div>
 
         <h1 class="arr_container__label">Output</h1>
-        <div class="arr_container__array_elems" id="array-output sort">
+        <div class="arr_container__array_elems" id="array-output">
         </div>
 
     </div>
     {% endblock %}
 
 </body>
-
-
+<script src="/static/js/algorithms/common/swap.js"></script>
+<script src="/static/js/algorithms/quickSort.js"></script>
 <script src="/static/js/script.js"></script>
 
 
