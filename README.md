@@ -1,5 +1,7 @@
-This displays how sort algorithms are organized.
+# Sort Types
+This project is supposed to demonstrate sort algorithms behaviors during the run.
 
-## QuickSort
 
-![QuickSort Example]https://i.imgur.com/KYZR9zL.gif
+### QuickSort example:
+
+![QuickSort Example](https://i.imgur.com/KYZR9zL.gif)
