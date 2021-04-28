@@ -34,7 +34,7 @@
         </div>
 
         <div class="arr_container__arraylength">
-            <input type="range" min="25" max="10000" value="5" step="25" class="slider" id="slider_array_length"
+            <input type="range" min="25" max="550" value="5" step="25" class="slider" id="slider_array_length"
                 oninput="updateValue(this.value)">
         </div>
 
@@ -42,6 +42,10 @@
             <button id="start_button" class="btn btn-primary" onclick="startSort()">Start</button>
             <button id="stop_button" class="btn btn-red" onclick="stopSort()">Stop</button>
         </div>
+
+        <label for="delay" id="delay-label">Delay</label>
+        <input type="text" name="delay" placeholder="Delay (ms)" id="delay-input" value="200" onchange="updateDelayValue()">
+
         <h1 class="arr_container__label">Input</h1>
         <div class="arr_container__array_elems" id="array-field">
         </div>
@@ -54,6 +58,8 @@
     {% endblock %}
 
 </body>
+<script src="/static/js/algorithms/common/deepCopy.js"></script>
+<script src="/static/js/algorithms/common/isSorted.js"></script>
 <script src="/static/js/algorithms/common/swap.js"></script>
 <script src="/static/js/algorithms/quickSort.js"></script>
 <script src="/static/js/script.js"></script>

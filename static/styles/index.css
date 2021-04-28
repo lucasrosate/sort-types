@@ -5,11 +5,10 @@
 }
 
 .graph-container {
-    width: 800px;
     padding-left: 25px;
-    height: 90%;
     margin-top: auto;
     margin-left: auto;
+    margin-bottom: auto;
     margin-right: 400px;
     background-color: var(--gray-color);
 }
@@ -31,8 +30,6 @@
 
     .graph-container {
         margin-top: 30px;
-        width: 90%;
-        min-width: 750px;
         margin-left: auto;
         margin-right: auto;
     }

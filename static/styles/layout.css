@@ -70,7 +70,7 @@ body {
 
 .arr_container__buttons {
     display: flex;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 
@@ -87,12 +87,13 @@ body {
     font-size: 1.2rem;
     height: 20px;
     margin: 0;
+    margin-top: 10px;
 }
 
 
 .arr_container__array_elems {
     background-color: var(--gray-color);
-    height: 200px;
+    height: 180px;
     width: 100%;
     margin-top: 20px;
     padding: 30px 20px;
@@ -102,4 +103,24 @@ body {
     font-size: 0.85rem;
     overflow-wrap: break-word;
     text-align: justify;
+}
+
+#delay-label {
+    margin-right: 15px;
+}
+
+#delay-input {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.0rem;
+
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+
+    height: 35px;
+    width: 50%;
+}
+
+#delay-input:focus {
+    outline: none;
 }
